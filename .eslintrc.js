@@ -17,27 +17,13 @@ module.exports = {
   globals: {
     __DEV__: false,
     __TEST__: false,
-    __TESTING__: false,
-    __PAGES__: false,
     __PROD__: false,
-    __PROXY__: false,
-    __ACT__: false,
-    __PUBLISH__: false,
     __MOCK__: false,
     BASE_PREFIX_URL: false,
     BASE_URL: false,
     CONTEXT: false,
     IMG_PATH_PREFIX: false,
-    NON_INDEX_REGEX: false,
-    OLD_SERVER_PREFIX: false,
-    SUCCESS: false,
-    ALERT: false,
-    CONFIRM: false,
-    REDIRECT: false,
-    RELOAD: false,
-    PROMPT: false,
-    REMIND: false,
-    $baseData: false
+    NON_INDEX_REGEX: false
   },
   parserOptions: {
     ecmaVersion: 6,
