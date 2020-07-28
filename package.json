@@ -27,7 +27,6 @@
     "eslint": "eslint --max-warnings 10 --ext .js,.vue .",
     "lint": "npm run eslint && npm run stylelint && npm run puglint",
     "lint:fix": "npm run eslint -- --fix && npm run stylelint && npm run puglint",
-    "lint:stage": "bash pre-commit.sh",
     "prod": "npm run compile:mock && npm run start",
     "start": "cross-env NODE_ENV=production DEBUG=hi* node build/bin/start",
     "stylelint": "node build/bin/stylelint.js",
@@ -35,16 +34,13 @@
     "test:mock": "npm run compile:test-mock && npm run start:test",
     "puglint": "pug-lint src"
   },
-  "pre-commit": [
-    "lint:stage"
-  ],
   "dependencies": {
     "axios": "^0.16.1",
     "bootstrap-styl": "^5.0.8",
     "fonts.css": "^1.5.0",
     "moment": "^2.18.1",
     "qs": "^6.4.0",
-    "vue": "2.5.16",
+    "vue": "^2.2.1",
     "vue-html5-editor": "^1.1.1",
     "vue-qrious": "^0.2.1",
     "vue-router": "2.6.0",
@@ -120,9 +116,9 @@
     "url-loader": "^0.5.8",
     "vconsole": "^2.5.2",
     "vue-hot-reload-api": "^2.1.0",
-    "vue-loader": "^12.0.3",
-    "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.2",
+    "vue-loader": "^11.1.4",
+    "vue-style-loader": "^2.0.3",
+    "vue-template-compiler": "^2.2.1",
     "vue-template-es2015-loader": "^2.1.2",
     "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.10.2",

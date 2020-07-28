@@ -10,12 +10,17 @@ import App from 'views/App'
 
 import utils, {on, throttle} from 'utils'
 
+import PageTitle from 'components/PageTitle'
+import Pager from 'components/Pager'
+
 Object.defineProperty(Vue.prototype, '$util', {
   value: utils,
   readable: true,
   writable: __DEV__
 })
 
+Vue.component('PageTitle', PageTitle)
+Vue.component('Pager', Pager)
 
 if (module.hot) module.hot.accept()
 

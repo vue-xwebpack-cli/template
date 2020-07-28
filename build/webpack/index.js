@@ -128,7 +128,7 @@ webpackConfig.module.rules = [
     test: /\.(svg|woff2?|eot|ttf)$/,
     loader: 'url-loader',
     query: {
-      limit: 10000,
+      limit: 100000,
       name: `${prodEmpty('[name].')}[hash].[ext]`
     }
   }

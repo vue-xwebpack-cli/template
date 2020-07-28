@@ -1,44 +1,44 @@
 <template lang="pug">
-  div(:class="$style.container")
-    h3 Hello! your name is {{ username }} and your web page's title is {{ title }} now.
-    h3 You can refresh your web page to change your name and title.
-    h2 Essential Links
-    ul
-      li
-        a(href="https://vuejs.org", target="_blank") Core Docs
-      li
-        a(href="https://forum.vuejs.org", target="_blank") Forum
-      li
-        a(href="https://chat.vuejs.org", target="_blank") Community Chat
-      li
-        a(href="https://twitter.com/vuejs", target="_blank") Twitter
+  .page-container
+    PageTitle(title="首页")
 
-      br
+    .page-body
+      div(:class="$style.items")
+        div
+          span 姓名
+          span 密码
+          span 创建时间
+          span 操作
 
-      li
-        a(href="http://vuejs-templates.github.io/webpack/", target="_blank")   Docs for This Template
+        div
+          span 张三
+          span 123456
+          span
+          span(:class="$style.btns")
+            span.btn.btn-theme-primary 编辑
+            span.btn.btn-theme-primary 删除
 
-    h2 Ecosystem
-    ul
-      li
-        a( href="http://router.vuejs.org/", target="_blank") vue-router
 
-      li
-        a(href="http://vuex.vuejs.org/", target="_blank") vuex
+      Pager(:page="page")
 
-      li
-        a(href="http://vue-loader.vuejs.org/", target="_blank") vue-loader
 
-      li
-        a(href="https://github.com/vuejs/awesome-vue", target="_blank") awesome-vue
 </template>
 <script>
+  import moment from 'moment'
   import {changeTitle} from 'utils'
+
   export default {
     data() {
       return {
         title: '',
-        username: ''
+        username: '',
+        page: {
+          startIndex: 0,
+          currentPage: 1,
+          totalRows: 0,
+          totalPages: 5,
+          pageRows: 20
+        }
       }
     },
     async created() {
@@ -49,19 +49,21 @@
   }
 </script>
 <style lang="stylus" module>
-  .container
-    h1, h2
-      font-weight normal
+  .items
+    > div
+      display flex
+      align-items center
+      border-bottom 1px solid $border-color
 
-    ul
-      list-style-type none
-      padding 0
+      > span
+        flex 1
+        line-height $item-height
+        padding 0 20px
 
-    li
-      display inline-block
-      margin 0 10px
+    > div:first-child
+      background-color $item-header-bg
 
-    a
-      color #42b983
-
+  .btns
+    > span:nth-child(2)
+      margin-left 10px
 </style>

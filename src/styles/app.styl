@@ -1,4 +1,14 @@
+@require "iconfont/iconfont.css"
 @require "transition"
+@require "_theme-base.styl"
+
+.iconfont
+  relative()
+  display inline-block
+  font-size $common-size
+  transform scale(16 / 14)
+  padding-left 1px
+  padding-right 1px
 
 ::-webkit-scrollbar
   size 0
@@ -13,6 +23,7 @@ input, textarea, [contenteditable], [contenteditable] *
 
 body
   font-hei()
+  background-color $bg-color
 
 :root, body, #app
   height 100%
@@ -25,9 +36,6 @@ body
 
 #app
   relative()
-  max-width 1024px
-  margin-left auto
-  margin-right auto
 
 a
   &, &:active, &:hover, &:visited
@@ -50,3 +58,33 @@ input
 
   &.transparent
     opacity 0
+
+.page-container
+  padding 10px 20px
+
+.page-body
+  margin-top 15px
+  background-color $reverse-color
+  box-shadow 0 2px 3px 0 rgba(202, 202, 202, 0.44)
+  border-radius 5px
+
+.btn
+  padding 4px 5px
+  border-radius 3px
+
+  &.btn-hg
+    padding 11px 15px
+
+  &.btn-disabled-default,
+  &.btn-disabled-primary
+    border-color $remark-color
+
+    &:focus, &:active, &:hover
+      outline 0
+
+  &.btn-disabled-default
+    color $remark-color
+
+  &.btn-disabled-primary
+    color $reverse-color
+    background-color $remark-color

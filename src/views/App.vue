@@ -1,13 +1,20 @@
 <template lang="pug">
-  #app(:class="$style.container")
-    img(:src="img")
-    router-view(transition="fade")
+  #app
+    TopMenu
+    LeftMenu
+
+    div(:class="$style.container")
+      router-view(transition="fade")
 
     loading(v-if="progress", :progress="progress")
+    Modal#modal
 </template>
 <script>
   import {mapGetters} from 'vuex'
   import Loading from 'components/Widgets/Loading'
+  import LeftMenu from 'components/LeftMenu'
+  import TopMenu from 'components/TopMenu'
+  import Modal from 'components/Modal'
 
   export default {
     name: 'app',
@@ -20,16 +27,15 @@
       }
     },
     components: {
-      Loading
+      Loading,
+      LeftMenu,
+      Modal,
+      TopMenu
     }
   }
 </script>
 <style lang="stylus" module>
   .container
-    font-family 'Avenir', Helvetica, Arial, sans-serif
-    -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
-    text-align center
-    color #2c3e50
-    margin-top: 60px
+    margin-left 200px
+    margin-top 50px
 </style>

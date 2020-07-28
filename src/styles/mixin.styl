@@ -3,3 +3,17 @@ middleCenter($position = absolute, transform = null)
   left 50%
   top 50%
   transform translate3d(-50%, -50%, 0) transform
+
+bbColor()
+  color arguments[0]
+  border-color arguments[1] || arguments[0]
+  background-color arguments[2] || arguments[1] || arguments[0]
+  outline 0
+
+// @stylint off
+bbActive()
+  &:hover, &.focus, &:focus
+    bbColor arguments
+  &.active, &:active
+    &, &:hover, &.focus, &:focus
+      bbColor arguments
