@@ -21,6 +21,10 @@
 input, textarea, [contenteditable], [contenteditable] *
   user-select text
 
+input, textarea
+  &::placeholder
+    color $placeholder-color
+
 body
   font-hei()
   background-color $bg-color
@@ -88,3 +92,19 @@ input
   &.btn-disabled-primary
     color $reverse-color
     background-color $remark-color
+
+.btn-middle
+  padding 9px 15px
+  border-radius 3px
+  cursor pointer
+
+.input
+  margin 0
+  padding 0
+  border 0
+  outline none
+
+.flex-center
+  display flex
+  align-items center
+

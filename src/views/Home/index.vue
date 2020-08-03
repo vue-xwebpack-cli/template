@@ -1,6 +1,9 @@
 <template lang="pug">
   .page-container
     PageTitle(title="首页")
+      .flex-center
+        InputSearch(placeholder="输入姓名搜索", v-model="username", @input="username = $event")
+        span.btn-middle.btn-theme-primary 搜索
 
     .page-body
       div(:class="$style.items")
