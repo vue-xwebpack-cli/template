@@ -13,6 +13,7 @@ import utils, {on, throttle} from 'utils'
 import PageTitle from 'components/PageTitle'
 import Pager from 'components/Pager'
 import InputSearch from 'components/InputSearch'
+import Calendar from 'components/Calendar'
 
 Object.defineProperty(Vue.prototype, '$util', {
   value: utils,
@@ -23,6 +24,7 @@ Object.defineProperty(Vue.prototype, '$util', {
 Vue.component('PageTitle', PageTitle)
 Vue.component('Pager', Pager)
 Vue.component('InputSearch', InputSearch)
+Vue.component('Calendar', Calendar)
 
 if (module.hot) module.hot.accept()
 

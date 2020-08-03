@@ -2,6 +2,7 @@
   .page-container
     PageTitle(title="首页")
       .flex-center
+        Calendar
         InputSearch(placeholder="输入姓名搜索", v-model="username", @input="username = $event")
         span.btn-middle.btn-theme-primary 搜索
 
