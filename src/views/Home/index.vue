@@ -2,6 +2,7 @@
   .page-container
     PageTitle(title="首页")
       .flex-center
+        Dropdown(:options="options")
         Calendar
         InputSearch(placeholder="输入姓名搜索", v-model="username", @input="username = $event")
         span.btn-middle.btn-theme-primary 搜索
@@ -36,6 +37,7 @@
       return {
         title: '',
         username: '',
+        options: [{name: '全部', code: ''}, {name: '六年级', code: '6'}],
         page: {
           startIndex: 0,
           currentPage: 1,

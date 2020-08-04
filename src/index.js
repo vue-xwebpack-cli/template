@@ -14,6 +14,7 @@ import PageTitle from 'components/PageTitle'
 import Pager from 'components/Pager'
 import InputSearch from 'components/InputSearch'
 import Calendar from 'components/Calendar'
+import Dropdown from 'components/Dropdown'
 
 Object.defineProperty(Vue.prototype, '$util', {
   value: utils,
@@ -25,6 +26,7 @@ Vue.component('PageTitle', PageTitle)
 Vue.component('Pager', Pager)
 Vue.component('InputSearch', InputSearch)
 Vue.component('Calendar', Calendar)
+Vue.component('Dropdown', Dropdown)
 
 if (module.hot) module.hot.accept()
 
