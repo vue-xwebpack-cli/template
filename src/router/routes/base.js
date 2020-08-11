@@ -8,6 +8,13 @@ export default [{
     bg: true
   }
 }, {
+  path: '/edit',
+  name: 'edit',
+  component: () => import('views/Home/Edit'),
+  meta: {
+    bg: true
+  }
+}, {
   path: '/404',
   name: '404',
   component: () => import('components/Widgets/NotFound')

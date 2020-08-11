@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    MenuItem(:menu="menu", v-for='(menu, index) in menus', :key='menu.menuName')
+    MenuItem(:menus="menus", :menu="menu", v-for='(menu, index) in menus', :key='menu.menuName')
 
 </template>
 
@@ -39,41 +39,6 @@
         return {
           height: menu.show ? menu.children.length * 40 + 'px' : '0'
         }
-      },
-      menuSpread(menu) {
-        if (menu.menuRouter) {
-          menu.selected = true
-
-          this.$router.push(menu.menuRouter)
-          closeModal()
-        }
-        // menu.selected = !menu.selected
-      },
-      recursion(all, temp) {
-        all.forEach(item => {
-          if (item.menuName !== temp.menuName) {
-            item.selected = false
-            this.recursion(item.children, temp)
-          }
-        })
-      },
-      showIconColor(menu) {
-        let show = false
-        if (menu.level === '0') {
-          menu.children.forEach(item => {
-            if (item.children.length <= 0 && item.selected) {
-              show = true
-            }
-            if (item.children.length > 0) {
-              item.children.forEach(item => {
-                if (item.selected) {
-                  show = true
-                }
-              })
-            }
-          })
-        }
-        return show
       }
     },
     components: {

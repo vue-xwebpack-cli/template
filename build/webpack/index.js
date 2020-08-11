@@ -170,7 +170,7 @@ webpackConfig.plugins.push(
         pretty: !config.compiler_html_minify
       }),
       excludeChunks: ['mould'],
-      favicon: paths.src('static/favicon.ico'),
+      // favicon: paths.src('static/favicon.ico'),
       hash: false,
       inject: true,
       minify: {

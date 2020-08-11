@@ -1,6 +1,6 @@
 <template lang="pug">
   div(:class="$style.container")
-    div(:class="$style.header")
+    div(:class="$style.header", @click="$router.push('/')")
       div
         img.img-circle(:src="icon", alt="测试")
       div 测试
@@ -45,6 +45,7 @@
     align-items center
     background-color #23262E
     z-index 2
+    cursor pointer
 
     > div:first-child
       > img

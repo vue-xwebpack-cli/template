@@ -7,7 +7,7 @@
           i.iconfont(:class="[menu.menuIcon, {[$style.colorIcon]: showIconColor(menu)}, $style.iconfont]")
         div(:class="[$style.menuRowRight]")
           span(:style="{'font-size': fontSizeName(menu.level)}", :title='menu.menuName', :class="menu.selected && menu.children.length <= 0 ? 'theme-color' : ''") {{menu.menuName}}
-          i.iconfont.icon-arrow-up(:class="[$style.iconfont, menu.show ? $style.rotate : '']", v-if='menu.children.length>0 ')
+          i.iconfont.icon-arrow-up(:class="[$style.iconfont, !menu.show ? $style.rotate : '']", v-if='menu.children.length>0 ')
 
 
       div(:class="$style.subMenu", v-if="menu.children.length", :style="computeHeight(menu)")
@@ -22,7 +22,8 @@
 
   export default {
     props: {
-      menu: Object
+      menu: Object,
+      menus: Array
     },
     name: 'MenuList',
     data() {
@@ -40,6 +41,10 @@
     methods: {
       toggleShow(menu) {
         menu.show = !menu.show
+        if (!menu.children.length && menu.url) {
+          this.recursion(this.menus, menu)
+          this.$router.push(menu.url)
+        }
         // this.$forceUpdate()
       },
       fontSizeName(level) {
@@ -58,16 +63,17 @@
         }
       },
       menuSpread(menu) {
-        if (menu.menuRouter) {
+        if (menu.url) {
           menu.selected = true
+          this.recursion(this.menus, menu)
 
-          this.$router.push(menu.menuRouter)
-          closeModal()
+          this.$router.push(menu.url)
+          // closeModal()
         }
         // menu.selected = !menu.selected
       },
       recursion(all, temp) {
-        all.forEach(item => {
+        all && all.forEach(item => {
           if (item.menuName !== temp.menuName) {
             item.selected = false
             this.recursion(item.children, temp)
